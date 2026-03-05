@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "PenNav-Package",
+    name: "PenNav-iOS-Package",
     platforms: [
         .iOS(.v14)
     ],
