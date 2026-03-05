@@ -17,10 +17,10 @@ PenNav delivers top-tier navigation with detailed 2D/3D maps, seamless home-to-o
 Add the PenNav SDK to your project using **Swift Package Manager**:
 1. Xcode, go to **File > Add Packages…**
 2. Enter the repository URL: https://github.com/Penguinin-hub/PenNav-iOS-Package
-3. In the version options, select **Exact Version** and enter: 5.0.0
+3. In the version options, select **Exact Version** and enter: 5.0.2
 4. Click **Add Package**
 5. When prompted, add **PenNav** to your target. Optionally add **PenNavRoaming** to enable off-campus navigation.
-> **Note:** Mapbox SDKs are bundled in v5.0.0+, so you do **not** need to install Mapbox separately.
+> **Note:** Mapbox SDKs are bundled in v5.0.2+, so you do **not** need to install Mapbox separately.
 
 ## Configure Mapbox Token and Permissions
 Add the following keys to your `Info.plist` file:
@@ -398,8 +398,8 @@ The following chainable methods can be used before calling `.build()` to configu
 
 > **Note:** All chainable methods can be called in any order **before** `.build()`.
 
-## Migration to v5.0.0
-When upgrading to v5.0.0 or later from older versions, follow these steps:
+## Migration to v5.0.2
+When upgrading to v5.0.2 or later from older versions, follow these steps:
 1.    Remove old frameworks and dependencies
    - Delete the manually added PenNav frameworks from your project.
    - Remove Mapbox SDKs from your Podfile, then run pod install to clean up.
