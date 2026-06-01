@@ -17,20 +17,25 @@ PenNav delivers top-tier navigation with detailed 2D/3D maps, seamless home-to-o
 Add the PenNav SDK to your project using **Swift Package Manager**:
 1. Xcode, go to **File > Add Packages…**
 2. Enter the repository URL: https://github.com/Penguinin-hub/PenNav-iOS-Package
-3. In the version options, select **Exact Version** and enter: 5.1.0
+3. In the version options, select **Exact Version** and enter: 5.2.0
 4. Click **Add Package**
 5. When prompted, add **PenNav** to your target. Optionally add **PenNavRoaming** to enable off-campus navigation.
 > **Note:** Mapbox SDKs are bundled in v5.0+, so you do **not** need to install Mapbox separately.
 
-## Configure Mapbox Token and Permissions
+## Configure Permissions
 Add the following keys to your `Info.plist` file:
 
-- `MBXAccessToken` (String) – Your Mapbox public token from [Mapbox tokens page](https://account.mapbox.com/access-tokens)  
 - `Privacy - Location When In Use Usage Description` (String)  
 - `Privacy - Bluetooth Always Usage Description` (String)  
 - `Privacy - Motion Usage Description` (String)  
 
 These keys provide the SDK with the permissions it needs to access location, Bluetooth, and motion data.
+
+## Configure Mapbox Token
+Add a key named MBXAccessToken to your Info.plist file, set its type to String, and assign it the value of your Mapbox public token from your Mapbox account's tokens page. Alternatively, you can provide it directly in code:
+```swift
+PenNavUIManager.shared.setMapboxAccessToken("YOUR_MAPBOX_ACCESS_TOKEN")
+```
 
 ## Initialize the SDK
 1. Import PenNav in your view controller:
@@ -52,8 +57,8 @@ PenNavUIManager.shared.initializationDelegate = self
 ```swift
 PenNavUIManager.shared
             .setClientKey("Your Client Key")
-            .setClientID("Your Client ID")
-            .setBaseURL(dataURL: "Your Data URL", positionURL: "Your Position URL")
+            .setClientId("Your Client ID")
+            .setBaseUrl(dataUrl: "Your Data URL", positionUrl: "Your Position URL")
             .setServiceName(dataServiceName: "Your Data Service Name", positionServiceName: "Your Position Service Name")
             .build()
 ```
@@ -74,28 +79,16 @@ extension YourViewController: PenNavInitializationDelegate {
     }
 }
 ```
-
-## Set a Custom Map Style
-To customize the map's appearance using a custom style, follow these steps:
-1. Obtain your custom map style URI from Mapbox. You can create or edit a map style in the Mapbox Studio and find the style URI in your Mapbox account.
-2. Import `PenguinINRenderer`:
-```swift
-import PenguinINRenderer
-```
-3. Set the custom style URI by assigning it to the `PIRendererSettings.styleUri` property. Make sure to do this before presenting the map:
-```swift
-PIRendererSettings.styleUri = "Your_Custom_Style_URI"
-```
    
 ## Select a Campus
-You can select a specific campus to show on the map using the `setCampusID` method while initializing PenNav.
+You can select a specific campus to show on the map using the `setCampusId` method while initializing PenNav.
 ```swift
 PenNavUIManager.shared
             .setClientKey("Your Client Key")
-            .setClientID("Your Client ID")
-            .setBaseURL(dataURL: "Your Data URL", positionURL: "Your Position URL")
+            .setClientId("Your Client ID")
+            .setBaseUrl(dataUrl: "Your Data URL", positionUrl: "Your Position URL")
             .setServiceName(dataServiceName: "Your Data Service Name", positionServiceName: "Your Position Service Name")
-            .setCampusID("Campus Id")
+            .setCampusId("Your Campus ID")
             .build()
 ```
 
@@ -105,8 +98,8 @@ You can control whether PenNav uses offline positioning by calling the `enableOf
 ```swift
 PenNavUIManager.shared
     .setClientKey("Your Client Key")
-    .setClientID("Your Client ID")
-    .setBaseURL(dataURL: "Your Data URL", positionURL: "Your Position URL")
+    .setClientId("Your Client ID")
+    .setBaseUrl(dataUrl: "Your Data URL", positionUrl: "Your Position URL")
     .setServiceName(dataServiceName: "Your Data Service Name", positionServiceName: "Your Position Service Name")
     .enableOfflinePositioning(true)
     .build()
@@ -157,12 +150,9 @@ Take the following steps to get notified when the location is shared:
 ```swift
 PenNavUIManager.shared
             .setClientKey("Your Client Key")
-            .setClientID("Your Client ID")
-            .setBaseURL(dataURL: "Your Data URL", positionURL: "Your Position URL")
+            .setClientId("Your Client ID")
+            .setBaseUrl(dataUrl: "Your Data URL", positionUrl: "Your Position URL")
             .setServiceName(dataServiceName: "Your Data Service Name", positionServiceName: "Your Position Service Name")
-            .setUsername("Your Username")
-            .setLanguage("en")
-            .setSimulationModeEnabled(isEnable: true)
             .setShareLocationCallback(enabled: false)
             .build()
 ```
@@ -178,6 +168,22 @@ extension YourViewController: PIEventsDelegate {
 3. Configure the `eventsDelegate` of `PenNavUIManager` by setting it to your view controller that conforms to `PIEventsDelegate`.
 ```swift
 PenNavUIManager.shared.eventsDelegate = self
+```
+
+## Screen Tracking
+PenNav calls `onScreenChange(name:)` each time a screen, sheet, or alert appears. Use this to track views in your analytics platform.
+1. Conform to the `PITrackingDelegate` protocol and provide an implementation for its `onScreenChange(name: String?)` method.
+```swift
+extension YourViewController: PITrackingDelegate {
+    func onScreenChange(name: String?) {
+        // Log the view to your analytics platform
+        analytics.logView(name: name)
+    }
+}
+```
+2. Configure the `trackingDelegate` of `PenNavUIManager` by setting it to your view controller that conforms to `PITrackingDelegate`.
+```swift
+PenNavUIManager.shared.trackingDelegate = self
 ```
 
 ## Off-Campus Navigation
@@ -269,11 +275,10 @@ PenNavUIManager.shared.setDeepLink(myDeepLink)
 ```swift
 PenNavUIManager.shared
             .setClientKey("Your Client Key")
-            .setClientID("Your Client ID")
-            .setBaseURL(dataURL: "Your Data URL", positionURL: "Your Position URL")
+            .setClientId("Your Client ID")
+            .setBaseUrl(dataURL: "Your Data URL", positionUrl: "Your Position URL")
             .setServiceName(dataServiceName: "Your Data Service Name", positionServiceName: "Your Position Service Name")
             .setUsername("Your Username")
-            .setLanguage("en")
             .setSimulationModeEnabled(isEnable: true)
             .build()
 ```
@@ -382,15 +387,15 @@ The following chainable methods can be used before calling `.build()` to configu
 | Method | Type | Description | Optional |
 |--------|------|-------------|----------|
 | `.setClientKey(_:)` | String | Your PenNav client key provided by Customer Success | Required |
-| `.setClientID(_:)` | String | Your PenNav client ID | Required |
-| `.setBaseURL(dataURL:positionURL:)` | String, String | URLs for data and position services | Required |
+| `.setClientId(_:)` | String | Your PenNav client ID | Required |
+| `.setBaseUrl(dataUrl:positionUrl:)` | String, String | URLs for data and position services | Required |
 | `.setServiceName(dataServiceName:positionServiceName:)` | String, String | Names of the data and position services | Required |
 | `.setUsername(_:)` | String | Optional username associated with the user, used for simulation and reporting | Optional |
-| `.setLanguage(_:)` | String | Language code for SDK localization (e.g., "en") | Optional |
+| `.setLanguage(languageCode:)` | String | Language code for SDK localization (e.g., "en") | Optional |
 | `.setSimulationModeEnabled(isEnable:)` | Bool | Enables or disables simulation mode for testing locations | Optional |
 | `.setShareLocationCallback(enabled:)` | Bool | Enables or disables the share location callback | Optional |
 | `.enableOfflinePositioning(_:)` | Bool | Enables or disables offline positioning support | Optional |
-| `.setCampusID(_:)` | String | Sets the campus to display on the map | Optional |
+| `.setCampusId(_:)` | String | Sets the campus to display on the map | Optional |
 | `.setDeepLinkComponents(scheme:host:)` | String, String | Configures custom URL scheme and host for deep links | Optional |
 | `.setDeepLink(_:)` | URL | Provides a deep link to a location on the map | Optional |
 | `.setBackButtonVisibility(visible:)` | Bool | Shows or hides the SDK’s built-in back button | Optional |
