@@ -17,7 +17,7 @@ PenNav delivers top-tier navigation with detailed 2D/3D maps, seamless home-to-o
 Add the PenNav SDK to your project using **Swift Package Manager**:
 1. Xcode, go to **File > Add Packages…**
 2. Enter the repository URL: https://github.com/Penguinin-hub/PenNav-iOS-Package
-3. In the version options, select **Exact Version** and enter: 5.2.2
+3. In the version options, select **Exact Version** and enter: 5.3.0
 4. Click **Add Package**
 5. When prompted, add **PenNav** to your target. Optionally add **PenNavRoaming** to enable off-campus navigation.
 > **Note:** Mapbox SDKs are bundled in v5.0+, so you do **not** need to install Mapbox separately.
@@ -58,6 +58,7 @@ PenNavUIManager.shared.initializationDelegate = self
 PenNavUIManager.shared
             .setClientKey("Your Client Key")
             .setClientId("Your Client ID")
+            .setCompanyId("Your Company ID")
             .setBaseUrl(dataUrl: "Your Data URL", positionUrl: "Your Position URL")
             .setServiceName(dataServiceName: "Your Data Service Name", positionServiceName: "Your Position Service Name")
             .build()
@@ -86,6 +87,7 @@ You can select a specific campus to show on the map using the `setCampusId` meth
 PenNavUIManager.shared
             .setClientKey("Your Client Key")
             .setClientId("Your Client ID")
+            .setCompanyId("Your Company ID")
             .setBaseUrl(dataUrl: "Your Data URL", positionUrl: "Your Position URL")
             .setServiceName(dataServiceName: "Your Data Service Name", positionServiceName: "Your Position Service Name")
             .setCampusId("Your Campus ID")
@@ -99,6 +101,7 @@ You can control whether PenNav uses offline positioning by calling the `enableOf
 PenNavUIManager.shared
     .setClientKey("Your Client Key")
     .setClientId("Your Client ID")
+    .setCompanyId("Your Company ID")
     .setBaseUrl(dataUrl: "Your Data URL", positionUrl: "Your Position URL")
     .setServiceName(dataServiceName: "Your Data Service Name", positionServiceName: "Your Position Service Name")
     .enableOfflinePositioning(true)
@@ -151,6 +154,7 @@ Take the following steps to get notified when the location is shared:
 PenNavUIManager.shared
             .setClientKey("Your Client Key")
             .setClientId("Your Client ID")
+            .setCompanyId("Your Company ID")
             .setBaseUrl(dataUrl: "Your Data URL", positionUrl: "Your Position URL")
             .setServiceName(dataServiceName: "Your Data Service Name", positionServiceName: "Your Position Service Name")
             .setShareLocationCallback(enabled: false)
@@ -276,7 +280,8 @@ PenNavUIManager.shared.setDeepLink(myDeepLink)
 PenNavUIManager.shared
             .setClientKey("Your Client Key")
             .setClientId("Your Client ID")
-            .setBaseUrl(dataURL: "Your Data URL", positionUrl: "Your Position URL")
+            .setCompanyId("Your Company ID")
+            .setBaseUrl(dataUrl: "Your Data URL", positionUrl: "Your Position URL")
             .setServiceName(dataServiceName: "Your Data Service Name", positionServiceName: "Your Position Service Name")
             .setUsername("Your Username")
             .setSimulationModeEnabled(isEnable: true)
@@ -302,15 +307,16 @@ import PenNavUI
 ```
 
 ### 1. Set Configuration before starting PIGeofenceManager
-Configures the geofence SDK with the provided settings. Provide BaseURL, ServiceName, ClientID, ClientKey and CampusID (optional).
+Configures the geofence SDK with the provided settings: the data URL, service name, client ID, client key, company ID, and campus ID (optional).
 
 ```swift
 let config = GeofenceConfiguration(
-    baseURL: "https://example.com", 
+    dataUrl: "https://example.com", 
     serviceName: "PenNavService", 
     clientId: "your-client-id", 
     clientKey: "your-client-key", 
-    campusId: 12345)
+    companyId: "your-company-id",
+    campusId: "your-campus-id")
 PIGeofenceManager.shared.setGeofenceSDKConfigurations(config)
 ```
 
@@ -388,6 +394,7 @@ The following chainable methods can be used before calling `.build()` to configu
 |--------|------|-------------|----------|
 | `.setClientKey(_:)` | String | Your PenNav client key provided by Customer Success | Required |
 | `.setClientId(_:)` | String | Your PenNav client ID | Required |
+| `.setCompanyId(_:)` | String | Your company ID, provided by Customer Success; sent with the authentication and campus requests | Required |
 | `.setBaseUrl(dataUrl:positionUrl:)` | String, String | URLs for data and position services | Required |
 | `.setServiceName(dataServiceName:positionServiceName:)` | String, String | Names of the data and position services | Required |
 | `.setUsername(_:)` | String | Optional username associated with the user, used for simulation and reporting | Optional |
@@ -395,7 +402,7 @@ The following chainable methods can be used before calling `.build()` to configu
 | `.setSimulationModeEnabled(isEnable:)` | Bool | Enables or disables simulation mode for testing locations | Optional |
 | `.setShareLocationCallback(enabled:)` | Bool | Enables or disables the share location callback | Optional |
 | `.enableOfflinePositioning(_:)` | Bool | Enables or disables offline positioning support | Optional |
-| `.setCampusId(_:)` | String | Sets the campus to display on the map | Optional |
+| `.setCampusId(_:)` | String | Sets the campus (by ID) to display on the map | Optional |
 | `.setDeepLinkComponents(scheme:host:)` | String, String | Configures custom URL scheme and host for deep links | Optional |
 | `.setDeepLink(_:)` | URL | Provides a deep link to a location on the map | Optional |
 | `.setBackButtonVisibility(visible:)` | Bool | Shows or hides the SDK’s built-in back button | Optional |
@@ -426,6 +433,7 @@ When upgrading to v5.0 or later from older versions, follow these steps:
 |Missing Position Service Name|Missing position service name. Please provide the required position service name.|
 |Missing Client ID|No client ID provided. Please ensure that a valid client ID is provided.|
 |Missing Client Name|No client name provided. Please provide a valid client name.|
+|Missing Company ID|No company ID provided. Please ensure that a valid company ID is provided.|
 |Invalid Client Key|Invalid client key. The provided client key is not valid. Please check and provide a valid client key.|
 |Missing Root Controller|No root controller provided. Please ensure that a valid root controller is provided.|
 |Missing View Container|No view container provided. Please provide a valid view container.|
@@ -448,6 +456,7 @@ Before installing and running the Demo App, open the `PenNavConfigurations.plist
 |ClientId|Provided by the Customer Success Team|
 |DataUrl|Provided by the Customer Success Team|
 |PositionUrl|Provided by the Customer Success Team|
+|CompanyID|Provided by the Customer Success Team|
 |DataServiceName|Provided by the Customer Success Team|
 |PositionServiceName|Provided by the Customer Success Team|
 
