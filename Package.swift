@@ -24,78 +24,78 @@ let package = Package(
         // --- BEGIN BINARY TARGETS ---
         .binaryTarget(
             name: "_MapboxNavigationHelpers",
-            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/578800186.zip",
-            checksum: "a6e2f8f77d022e9b3456042d034eaa88d03f7aed9d4a76845bdcd6895c521271"
+            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/579141061.zip",
+            checksum: "b8febb90e043dced55170cf8dc8099b6f3d650f673bd6ab8b7f178b5d61a054e"
         ),
         .binaryTarget(
             name: "_MapboxNavigationLocalization",
-            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/578800182.zip",
-            checksum: "9c73a53c7470ae5fbcb702b7713c3a1afaa1b0c8a285b6839c081db8df2597eb"
+            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/579141045.zip",
+            checksum: "13c207210184841d7024097feedd92181a5894fd94deaca9691d0d47e80272a9"
         ),
         .binaryTarget(
             name: "libnav_mb",
-            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/578800183.zip",
-            checksum: "7f53ccfeb0d18acffd498dad85fce6040e9086982ed6068a0cdf5164c07222ca"
+            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/579141059.zip",
+            checksum: "e3845a0b906121be7e58c177025f347797820c771f32f1cbc84f2e4e1745be29"
         ),
         .binaryTarget(
             name: "MapboxCommon",
-            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/578800184.zip",
-            checksum: "98ee0e1efc7f8f1fc8ecdbf347919f0399d9e735649ce22d1d431e014fcb5494"
+            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/579141053.zip",
+            checksum: "4ddaae379b4d1beb5faa2e7266491d88f7d758a8b720529e9f3cd67e37c653f7"
         ),
         .binaryTarget(
             name: "MapboxCoreMaps",
-            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/578800193.zip",
-            checksum: "0affe264437cb614875b29eed462f07fbf3e214cb06edcb0a83fedb6f4190d6a"
+            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/579141055.zip",
+            checksum: "4bad40d723ecfa3fed72ba24d53ac0821feabe64a19c58d36c7e4ba33edfc9a5"
         ),
         .binaryTarget(
             name: "MapboxDirections",
-            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/578800232.zip",
-            checksum: "a555817413e12baf98e1ab22ba45a4763b89baa570467ba11d0ac0bea007d726"
+            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/579141090.zip",
+            checksum: "470160b8942e43b643371148ce398e18788b74f979a325737692b6a06af35d98"
         ),
         .binaryTarget(
             name: "MapboxMaps",
-            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/578800242.zip",
-            checksum: "b93b3010d0752728349f939a29cea89e9cdc261ddf4a947310e372a5b3fba50f"
+            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/579141094.zip",
+            checksum: "52df82b56a2c1a6116846898b9ab1e2dbace10b9b0b92eb8a5d86c93801ff206"
         ),
         .binaryTarget(
             name: "MapboxNavigationCore",
-            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/578800248.zip",
-            checksum: "5b794bd60c2115ab3520e274196550d8365075421460b092672a4ee2daea826c"
+            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/579141092.zip",
+            checksum: "8bcb7c006e4e6154330cc34ac591305ffc0b7cf2437c18d52c500b299cad1d93"
         ),
         .binaryTarget(
             name: "MapboxNavigationNative",
-            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/578800305.zip",
-            checksum: "6e49a09fce4a8a325f393aa38d7f25582d5d8779b55415367529cd4bafe07cfc"
+            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/579141168.zip",
+            checksum: "b817b6eb57cb29326236e831a55985e1ace6a48b1b36d9bb345e8ff11d197e52"
         ),
         .binaryTarget(
             name: "MapboxNavigationUIKit",
-            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/578800389.zip",
-            checksum: "6a1a475717e1972f67a02e3da0f6b77cce2c2e44832a51905247357aee276f8d"
+            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/579141237.zip",
+            checksum: "aa4281775d2d931e1840493c1fe07e3518d7987c0be47e1641167b4013ceaa33"
         ),
         .binaryTarget(
             name: "pe_logic",
-            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/578800399.zip",
-            checksum: "7e3ff09a577961e852f29fed849ea23c623d54b09014d798c4851438eec17905"
+            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/579141241.zip",
+            checksum: "9e117122a05e75c16a9d52f427224fe1b34512bb414c90fbc32cb416d430d4e2"
         ),
         .binaryTarget(
             name: "Penguin",
-            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/578800432.zip",
-            checksum: "d6bd955ac595a886287eeaac7e5e4ac25881ddcf325aeac6e15478df591e1e75"
+            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/579141282.zip",
+            checksum: "790488f465f3cd719b406d33745d9dddae1567bbcfae5e5054f5016b4e39cd70"
         ),
         .binaryTarget(
             name: "PenguinINRenderer",
-            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/578800466.zip",
-            checksum: "d80345cfdd8065eb2ecde1fed2630db648f5990128ee442a3fc11d4ab738769b"
+            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/579141318.zip",
+            checksum: "c14a9bb9a4f4bdd3a0a4005c21576623b05d7e7be3fd8fbbc643b9db2fbf2c76"
         ),
         .binaryTarget(
             name: "PenNavUI",
-            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/578800471.zip",
-            checksum: "041fd5d5123a09b95292dfe663f7ed2a25b4dceacaadcc04da7be6aa51aea88f"
+            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/579141325.zip",
+            checksum: "a9bc240ce0b6141fde432c593349016be4e492f298442c6f0f852896dbf20874"
         ),
         .binaryTarget(
             name: "Turf",
-            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/578800480.zip",
-            checksum: "44666462c72919bf8b29139dcb81bbab847db905c41b9ade82f676afc9d41224"
+            url: "https://api.github.com/repos/Penguinin-hub/PenNav-iOS-Package/releases/assets/579141340.zip",
+            checksum: "a811c331f9f9f982aef101121ab208a83ae495035e54b8957799d3aa65f27a75"
         ),
         // --- END BINARY TARGETS ---
         // --- BEGIN TARGETS ---
