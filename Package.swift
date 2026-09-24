@@ -6,7 +6,9 @@ import PackageDescription
 let package = Package(
     name: "PenNav-iOS-Package",
     platforms: [
-        .iOS(.v14)
+        // --- BEGIN PLATFORMS ---
+        .iOS("15.0"),
+        // --- END PLATFORMS ---
     ],
     products: [
         // --- BEGIN PRODUCTS ---
