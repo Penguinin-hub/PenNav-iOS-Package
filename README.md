@@ -10,8 +10,8 @@ PenNav delivers top-tier navigation with detailed 2D/3D maps, seamless home-to-o
 **Seamless Integration**: PenNav is designed for effortless integration with a vector-based map engine, comprehensive 2D/3D maps, and a fully customizable UI/UX. Its flexible design allows you to tailor the appearance to reflect your brand, reducing integration time from weeks to hours.
 
 ## Requirements
-- iOS 14.0 or later
-- iPadOS 14.0 or later
+- iOS 15.0 or later
+- iPadOS 15.0 or later
 
 ## Install the SDK
 Add the PenNav SDK to your project using **Swift Package Manager**:
